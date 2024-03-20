@@ -59,7 +59,7 @@
 [Stack Overflow Trands]([https://insights.stackoverflow.com/trends?tags=r%2Cstatistics)  
 
 챕터2  
-리액트 시작하기  
+- 리액트 시작하기  
  npx create-react-app test-app
  <br>
  
