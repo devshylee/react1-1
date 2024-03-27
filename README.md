@@ -140,6 +140,8 @@
             - Virtual DOM : 실제 돔에 접근하여 조작하는 대신, 이것을 추상화시킨 자바스크립트 객체를 이용해 사용한다.
             - 동기식 : 렌더링될 때 마다 정보를 계속해서 보내줌
             - 비동기식 : 기존 렌더링된 정보를 저장하며 변화를 추적하여 변경된 상태를 바꿔준다  
+        ![DOM구조](https://github.com/devshylee/react1-1/assets/69080831/be9b3562-450a-4721-89ff-a4ce3894c696)
+ 
         
     - 컴포넌트 기반 구조
         1. 리액트의 모든 페이지는 컴포넌트로 구성됩니다.
@@ -156,6 +158,8 @@
     - 활발한 지식공유 & 커뮤니티
     - 모바일 앱 개발기능
         - 리액트 네이티브라는 모바일 환경 UI프레임워크를 사용하면 크로스플랫폼 모바일 앱을 개발할 수 있습니다.  
+    ![브라우저 동작원리](https://github.com/devshylee/react1-1/assets/69080831/d710cf7b-fe54-4698-9f61-0c992092d8bb)
+
     <br>
 
 - 리액트 단점
@@ -175,9 +179,11 @@
 
 [Stack Overflow Trands]([https://insights.stackoverflow.com/trends?tags=r%2Cstatistics)  
 
-챕터2 리액트 시작하기
-
+챕터2  
+- 리액트 시작하기  
  npx create-react-app test-app
+ <br>
+ 
 ## 3월 13일 강의 내용
 # H1
 ## H2
