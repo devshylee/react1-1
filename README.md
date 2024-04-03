@@ -1,5 +1,220 @@
 # 이성현 201930122
 
+## 4월 3일 강의 내용
+
+### 챕터 5 - 컴포넌트와 Props
+
+- 컴포넌트의 역할
+    - 리액트는 컴포넌트 기반의 구조를 가진다.
+    - 컴포넌트 구조라는 것은 작은 컴포넌트가 모여 큰 컴포넌트를 구성하고, 다시 이런 컴포넌트들이 모여서 전체 페이지를 구성한다는 것을 의미합니다.
+    - 컴포넌트는 재사용이 가능하기 때문에 전체 코드의 양을 줄일 수 있어 개발 기간과 유지 보수 비용도 줄일 수 있습니다.
+    - 컴포넌트는 자바스크립트 함수처럼 입력과 출력이 있다는 면에서 유사합니다.
+    - 다만 입력은 Props가 담당하고, 출력은 리액트 엘리먼트의 형태로 출력됩니다.
+    - 엘리먼트를 필요한 만큼 만들어 사용한다는 면에서는 객체 지향의 개념과 비슷합니다.  
+    <br>
+
+- Props의 개념
+    - Props는 property(속성, 특성)의 준말입니다.
+    - 이 Props가 바로 컴포넌트의 속성입니다.
+    - 컴포넌트에 어떤 속성, props를 넣느냐에 따라서 속성이 다른 엘리먼트가 출력됩니다.
+    - props는 컴포넌트에 전달 할 다양한 정보를 담고 있는 자바스크립트 객체입니다.  
+    <br>
+
+- Props의 특징
+    - 읽기 전용입니다. 변경할 수 없다는 의미입니다.
+    - 속성이 다른 엘리먼트를 생성하려면 새로운 props를 컴포넌트에 전달하면 됩니다.  
+    <br>
+
+- Pure 함수 vs Impure함수
+    - Pure함수는 인수로 받은 정보가 함수 내부에서도 변하지 안흔 함수입니다. ( =Props)
+    - Impure함수는 인수로 받은 정보가 함수 내부에서 변하는 함수 입니다.  
+    <br>
+
+- Props 사용법
+    - JSX에서는 key-value쌍으로 props를 구성합니다
+    ``` JavaScript 
+        function App(props) {
+            return {
+                <Profile
+                    name="소풀"
+                    introduction="안녕하세요 소풀입니다"
+                    viewCount={1500}
+                />
+            }
+        }
+    ```
+    ``` JavaScript
+            function App(props) {
+            return {
+                <Layout
+                    Width={2500}
+                    height={1440}
+                    header={
+                        <Header title="소풀의 블로그입니다." />
+                    }
+                    Footer={
+                        <Footer />
+                    }
+                />
+            }
+        }
+    ```
+    - JSX를 사용하지 않는 경우 props의 전달 방법은 createElement()함수를 사용하는 것
+    ``` JavaScript
+        React.createElement(
+            type,
+            [props],
+            [...children]
+        )
+    ```
+    <br>
+
+- 컴포넌트의 종류
+    - 리액트 초기 버전을 사용할 때는 클래스형 컴포넌트를 주로 사용했습니다.
+    - 이후 Hook이라는 개념이 나오면서 최근에는 함수형 컴포넌트를 주로 사용합니다.
+    - 예전에 작성된 코드나 문서들이 클래스형 컴포넌트를 사용하고 있기 때문에
+    - 클래스형 컴포넌트와 컴포넌트의 생명주기에 관해서도 공부해 두어야 합니다.
+    - 함수형 컴포넌트
+    ``` JavaScript
+        function Welcome(props){
+            return <h1>안녕, {props.name}</h1>
+        }
+    ```
+    - 클래스형 컴포넌트
+    ``` JavaScript
+        class Welcome extends React.Component {
+            render(){
+                return <h1>안녕, {props.name}</h1>
+            }
+        }
+    ```
+    <br>
+- 컴포넌트 이름 짓기
+    - 이름은 항상 대문자로 시작합니다.
+    - 왜냐하면 리액트는 소문자로 시작하는 컴포넌트를 DOM 태그로 인식하기 때문입니다.
+    - 컴포넌트 파일 이름과 컴포넌트 이름은 같게 합니다.  
+    <br>
+
+- 컴포넌트의 렌더링
+    - 렌더링의 과정은 다음 코드와 같습니다
+    ``` JavaScript
+        function Welcome(props){
+                return <h1>안녕, {props.name}</h1>
+            }
+
+        const element = <Welcome name="인제" />
+        ReactDOM.render{
+            element,
+            document.getElementById('root')
+        };
+    ```
+
+- 컴포넌트 합성
+    - 컴포넌트 합성은 여러 개의 컴포넌트를 합쳐서 하나의 컴포넌트를 만드는 것입니다.
+    - 리액트에서는 컴포넌트 안에 또 다른 컴포넌트를 사용할 수 있기 떄문에 복잡한 화면을 여러 개의 컴포넌트로 나누어 구현할 수 있습니다.
+    ``` JavaScript
+        function Welcome(props){
+                return <h1>Hello, {props.name}</h1>
+            }
+        function App(props){
+            return {
+                <div>
+                    <Welcome name="mike" />
+                    <Welcome name="mike" />
+                    <Welcome name="mike" />
+                </div>
+            }
+        }
+        ReactDOM.render(
+            <App />
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+        )
+    ```
+
+- 컴포넌트 추출
+    - 복잡한 컴포넌트를 쪼개서 여러 개의 컴포넌트로 나눌 수도 있습니다.
+    - 큰 컴포넌트에서 일부를 추출해서 새로운 컴포넌트를 만드는 것입니다.
+    - 실무에서는 처음부터 1개의 컴포넌트에 하나의 기능만 사용하도록 설계하는 것이 좋습니다.
+    ``` JavaScript
+        function Avatar(props){
+            return {
+                <img ClassName = "avatar"
+                    src={props.user-avatarurl}
+                    alt={props.user-name}
+                />
+            }
+        }
+        function Comment(props){
+            return {
+                <div className="commnet">
+                    <userInfo user={props.author} />
+                    <div className="comment-text">
+                        {props.text}
+                    </div>
+                    <div className="comment-date">
+                        {formatDate(props.date)}
+                    </div>
+                </div>
+            }       
+        }
+        function userInfo(props){
+            return {
+                <div className="user-info">
+                    <Avatar user={props.name} />
+                    <div className="user-info-name">
+                        {props.user.name}
+                    </div>
+                </div>
+            }
+        }
+    ```
+
+### Chapter 6 - state와 생명주기
+
+- State란?
+    - state는 리액트 컴포넌트의 상태를 의미합니다
+    - 상태의 의미는 정상인지 비정상인지가 아닌 컴포넌트의 데이터를 의미합니다.
+    - 정확히는 컴포넌트의 변경가능한 데이터를 의미합니다.
+    - State가 변하면 다시 렌더링이 되기 때문에 렌더링과 관련된 값만 state에 포함시켜야 합니다.
+
+- State의 특징
+    - 리액트 만의 특별한 형태가 아닌 단지 자바스크립트 객체일 뿐입니다.
+    - 예의 LikeButton은 class컴포넌트입니다.
+    - constructor는 생성자이고 그 안에 있는 this.state가 한 컴포넌트의 state입니다.
+    - 함수형 에서는 userState()라는 함수를 사용합니다
+    ``` JavaScript
+        class LikeButton extends React Component {
+            constructor(props){
+                super(props)
+
+                this.state = {
+                    liked : false;
+                }
+            }
+        }
+    ```
+    - state는 변경은 가능하다고 했지만 직접 수정해서는 안됩니다.
+    - 불가능 하다고 생각 하는 것이 좋습니다.
+    - state를 변경하고자 할 때는 setState()함수를 사용합니다.
+    ``` JavaScript
+        this.state = { 
+            name = "Inje" // X
+        }
+        
+        this.setState({
+            name: "Inje" // O
+        })
+    ```
+
+- 생명주기에 대해 알아보기
+    - 생명주기는 컴포넌트의 생성 시점, 사용 시점, 종료 시점을 나타내는 것입니다.
+    - constructor가 실행 되면서 컴포넌트가 생성됩니다
+    - 생성 직후 componentDidMount()함수가 호출됩니다.
+    - 컴포넌트가 소멸하기 전까지 여러 번 렌더링 합니다.
+    - 렌더링은 props, setState(), forceUpdate()에 의해 상태가 변경되면 이루어집니다.
+    - 그리고 렌더링이 끝나면 componentDinUpdate()함수가 호출됩니다.
+    - 마지막으로 컴포넌트가 언마운트되면 componentWillUnmount()함수가 호출됩니다.
+
 ## 3월 27일 강의 내용
 
 ### 챕터 3  
