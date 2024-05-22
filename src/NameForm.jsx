@@ -8,8 +8,9 @@ export default function NameForm(props){
     }
 
     const handleSubmit = (e) => {
+        <p></p>
+        alert('입력한 이름 : ' + value)
         e.preventDefault()
-        props.onSubmit(value)
     }
 
     return(
