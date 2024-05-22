@@ -8,6 +8,7 @@ import Library from './Chapter_03/Library';
 import Clock from './Chapter_03/Clock';
 import Welcome from './Welcome'
 import CommentList from './Chapter_05/CommentList';
+import Accommodate from './Chapter_07/Accommodate'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -19,6 +20,7 @@ root.render(
     <Clock />    
     <Welcome name="인제" />
     <CommentList />
+    <Accommodate />
   </React.StrictMode>
 );
 
