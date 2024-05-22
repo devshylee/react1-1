@@ -9,6 +9,8 @@ import Clock from './Chapter_03/Clock';
 import Welcome from './Welcome'
 import CommentList from './Chapter_05/CommentList';
 import Accommodate from './Chapter_07/Accommodate'
+import LandingPage from './LandingPage';
+import AttendanceBook from './AttendanceBook';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -21,6 +23,8 @@ root.render(
     <Welcome name="인제" />
     <CommentList />
     <Accommodate />
+    <LandingPage />
+    <AttendanceBook />
   </React.StrictMode>
 );
 
