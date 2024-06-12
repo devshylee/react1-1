@@ -21,7 +21,63 @@
         }
     ```
     - 두번째는 id선택자를 설명하고 있는데 이 것은 절대 사용하지 마세요. 그 이유는 JavaSript에도 id키워드가 존재하기 때문에 코드를 보고 의미를 유추하기 힘들어지기 때문입니다.
-    - 세 번쨰는 class 선택자 입니다. HTML태그로 특정할 수 없는 스타일은 모두 class로 정의합니다.
+    - 세 번쨰는 class 선택자 입니다. HTML태그로 특정할 수 없는 스타일은 모두 class로 정의합니다. (.class)
+    - 네 번쨰는 유형의 전체 선택자 입니다. ( * )
+    - 다섯 번째는 그룹 선택자
+    - 여섯 번째는 상태 선택자입니다.
+        - ```CSS 
+            button:hover{
+                font-weight : bold;
+            }
+            a:active{
+                color : red;
+            }
+            p:first-child{
+                background : #ff0000;
+            }
+            p:last-child{
+                background : #0000ff;
+            }
+        ```
+
+- 레이아웃과 관련된 속성
+    - 화면에 엘리먼트를 어떻게 배치할 것인지를 정의합니다.
+    - 가장 중요한 속성은 display입니다.
+    - 모든 엘리먼트는 기본 display 속성을 갖고 있지만 이 기본값을 변경해 줄 수 있습니다.
+    - ```CSS div { display : none | block | inline | flex } ```
+    - none는 존재는 하지만 화면에 보이지 않는 것으로, 자바스크립트를 넣을 때 많이 사용합니다.
+    - block은 세로로 정렬되며 width의 height를 가질 수있다. 크기와 상관없이 한 줄을 점유합니다.
+    - inline은 가로로 정렬되며, width의 height를 가질 수 없다. 컨텐츠의 크기만큼 공간을 점유합니다.
+    - inline-blick는 기본적으로 inline의 특성을 갖지만, width와 height등 block의 특성을 사용할 수 있습니다.
+    - 대포적인 block과 ㅑnline태그는 다음과 같습니다
+         block : <div>, <table>, <h1>~<h6>, <p>, <form>, <ul>, <ol> ...
+         inline : <span>, <a>, <br>, <input>, <img> ...
+    - flex는 컨테이너의 형태로 엘리먼트를 관리합니다
+    - 최근 들어서는 Grid를 많이 사용합니다. Flex가 1차원적이라면 Grid는 2차원적으로 괸라가 가능하기 때문입니다.
+    - visibility 속성은 엘리먼트의 가시성을 정의합니다.
+    - 중요한 것은 display:none과 visibility:hidden의 차이입니다.
+    - display:none은 엘리먼트의 영역이 보이지 않고ㅡ visibility:hidden은 차지하는 영역이 보입니다.
+    - 다음으로 position 속성은 엘리먼트를 어떻게 위치시킬 것인지를 정의합니다.
+        position : static | fixed | relative | absolute
+    - static은 원래 순서대로 위치 시킵니다.
+    - fixed는 window에 상대적 위치라고 정의하지만 지금은 sticky로 바뀌었습니다.
+    - relative는 요소에 대한 상대적 위치입니다.
+    - absolute는 window에 대한 절대적인 위치입니다.
+
+- 많이 사용하는 기타 속성
+    - 16진수 컬러값 : #ff0000
+    - 투명도를 가진 16진수 컬러값 : #ff000055
+    - RGB컬러값 : rgb(255,0,0)
+    - RGBA 컬러값 : rgb(255,0,0,0.5)
+    - 정의된 색상 이름
+    - currentcolor 키워드
+
+- styled-components
+    - CSS 문법을 그대로 사용하면서 결과물을 스타일링된 컴포넌트 형태로 만들어 주는 오픈소스 라이브러리
+    - 컴포넌트의 개념을 사용하고 있어 리액트 개발에 많이 사용됩니다.
+    - 태그드 템플릿 리터럴을 사용하여 구성 요소의 스타일을 지정합니다.
+    - 태그드 템플릿 리터럴은 자바스크립트에서 제공하는 문법 중 하나로 리터럴을 템플릿 형태로 사용하는 것입ㄴ니다
+    - styled.<HTML tag>` ... ` 의 형태로 정의한 후 컴포넌트를 생성해서 사용합니다.
 
 # 6월 11일 강의내용
 - 컨텍스트 API

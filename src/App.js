@@ -1,12 +1,12 @@
 import './App.css';
 import Calculator from './Calculator';
-import { ThemeContext } from './ThemeContext';
+import MainPage from './MainPage';
 
 export default function App() {
   return (
     <div className="App">
       <Calculator />
-      <ThemeContext />
+      <MainPage />
     </div>
   );
 }
