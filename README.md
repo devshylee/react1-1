@@ -50,8 +50,8 @@
     - inline은 가로로 정렬되며, width의 height를 가질 수 없다. 컨텐츠의 크기만큼 공간을 점유합니다.
     - inline-blick는 기본적으로 inline의 특성을 갖지만, width와 height등 block의 특성을 사용할 수 있습니다.
     - 대표적인 block과 inline태그는 다음과 같습니다
-         block : <div>, <table>, <h1>~<h6>, <p>, <form>, <ul>, <ol>
-         inline : <span>, <a>, <br>, <input>, <img>
+        - block : div, table, h1~h6, p, form, ul, ol
+        - inline : span, a, br, input, img
     - flex는 컨테이너의 형태로 엘리먼트를 관리합니다
     - 최근 들어서는 Grid를 많이 사용합니다. Flex가 1차원적이라면 Grid는 2차원적으로 괸라가 가능하기 때문입니다.
     - visibility 속성은 엘리먼트의 가시성을 정의합니다.
